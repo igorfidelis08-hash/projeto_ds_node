@@ -49,4 +49,44 @@ const criarUsuario = async (
     ]);
     
     return resultado;
+};
+
+const buscarUSuarios = async () => {
+
+    const sql = `
+        SELECT
+            id_usuario,
+            nome,
+            email,
+            telefone,
+            cep,
+            endereco,
+            numero,
+            complemento,
+            bairro,
+            cidade,
+            estado,
+            login
+        FROM usuarios
+    `;
+    const [usuarios] = await db.execute(sql);
+
+    return usuarios;
 }
+
+    const sql = `
+        SELECT *
+        FROM usuarios
+        WHERE login = ?
+    `;
+
+    const [usuarios] = await db.execute(sql, [login]);
+
+    return usuarios[0];
+};
+
+module.exports = {
+    criarUsuario,
+    buscarUsuarios,
+    buscarPorLogin
+};
