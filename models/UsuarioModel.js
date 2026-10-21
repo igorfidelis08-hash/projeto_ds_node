@@ -85,6 +85,7 @@ const buscarUSuarios = async () => {
     return usuarios[0];
 };
 
+
 module.exports = {
     criarUsuario,
     buscarUsuarios,
