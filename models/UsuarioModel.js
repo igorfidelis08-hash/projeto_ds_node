@@ -15,8 +15,8 @@ const criarUsuario = async (
     senha
 ) => {
 
-    const sql = 
-        `INSERT INTO usuarios 
+    const sql = `
+        INSERT INTO usuarios 
         (
             nome,
             email,
@@ -33,6 +33,20 @@ const criarUsuario = async (
         )
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
     `;
-    const [resultado] = await db.execute(sql, [nome ,login ,senha]);
+    const [resultado] = await db.execute(sql, [
+        nome,
+        email,
+        telefone,
+        cep,
+        endereco,
+        numero,
+        complemento,
+        bairro,
+        cidade,
+        estado,
+        login,
+        senha
+    ]);
+    
     return resultado;
 }
